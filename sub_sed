@@ -1,0 +1,142 @@
+:num1before::ch
+/.*1.*_/{
+s/\(.*\)1\(.*\)_/\1:bb\2_/
+b num1before::ch
+}
+
+:num0before::ch
+/.*0.*_/{
+s/\(.*\)0\(.*\)_/\1:b\2_/
+b num0before::ch
+}
+
+:num2before::ch
+/.*2.*_/{
+s/\(.*\)2\(.*\)_/\1:bbb\2_/
+b num2before::ch
+}
+
+:num3before::ch
+/.*3.*_/{
+s/\(.*\)3\(.*\)_/\1:bbbb\2_/
+b num3before::ch
+}
+
+:num4before::ch
+/.*4.*_/{
+s/\(.*\)4\(.*\)_/\1:bbbbb\2_/
+b num4before::ch
+}
+
+:num5before::ch
+/.*5.*_/{
+s/\(.*\)5\(.*\)_/\1:bbbbbb\2_/
+b num5before::ch
+}
+
+:num6before::ch
+/.*6.*_/{
+s/\(.*\)6\(.*\)_/\1:bbbbbbb\2_/
+b num6before::ch
+}
+
+:num7before::ch
+/.*7.*_/{
+s/\(.*\)7\(.*\)_/\1:bbbbbbbb\2_/
+b num7before::ch
+}
+
+:num8before::ch
+/.*8.*_/{
+s/\(.*\)8\(.*\)_/\1:bbbbbbbbb\2_/
+b num8before::ch
+}
+
+:num9before::ch
+/.*9.*_/{
+s/\(.*\)9\(.*\)_/\1:bbbbbbbbbb\2_/
+b num9before::ch
+}
+
+###
+
+:num1after::ch
+/_.*1.*/{
+s/_\(.*\)1\(.*\)/_\1:aa\2/
+b num1after::ch
+}
+
+:num0after::ch
+/_.*0.*/{
+s/_\(.*\)0\(.*\)/_\1:a\2/
+b num0after::ch
+}
+
+:num2after::ch
+/_.*2.*/{
+s/_\(.*\)2\(.*\)/_\1:aaa\2/
+b num2after::ch
+}
+
+:num3after::ch
+/_.*3.*/{
+s/_\(.*\)3\(.*\)/_\1:aaaa\2/
+b num3after::ch
+}
+
+:num4after::ch
+/_.*4.*/{
+s/_\(.*\)4\(.*\)/_\1:aaaaa\2/
+b num4after::ch
+}
+
+:num5after::ch
+/_.*5.*/{
+s/_\(.*\)5\(.*\)/_\1:aaaaaa\2/
+b num5after::ch
+}
+
+:num6after::ch
+/_.*6.*/{
+s/_\(.*\)6\(.*\)/_\1:aaaaaaa\2/
+b num6after::ch
+}
+
+:num7after::ch
+/_.*7.*/{
+s/_\(.*\)7\(.*\)/_\1:aaaaaaaa\2/
+b num7after::ch
+}
+
+:num8after::ch
+/_.*8.*/{
+s/_\(.*\)8\(.*\)/_\1:aaaaaaaaa\2/
+b num8after::ch
+}
+
+:num9after::ch
+/_.*9.*/{
+s/_\(.*\)9\(.*\)/_\1:aaaaaaaaaa\2/
+b num9after::ch
+}
+
+:ch s/\([^!]*\)\(b\)\([!b_].*[^b]\)a$/\1\2a\3/g
+t ch
+s/\(.*\)\:$/\1/1
+#s/\(.*\)_\(.\{1,\}\)/\1_\2/1#удаляем двоеточие в конце
+s/\([^!]*\):\([ab]*[!_].*\)/\1!\2/1#восклицательный знак перед двоеточием в измененном разряде
+t ch
+s/_//
+s/ba//g
+s/!/:/g
+s/:bbbbbbbbb/9/g
+s/:bbbbbbbb/8/g
+s/:bbbbbbb/7/g
+s/:bbbbbb/6/g
+s/:bbbbb/5/g
+s/:bbbb/4/g
+s/:bbb/3/g
+s/:bb/2/g
+s/:b/1/g
+s/:/0/g
+
